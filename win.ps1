@@ -17,3 +17,24 @@ Invoke-Command -ComputerName $sourceServer -Credential $sourceCredential -Script
 	Copy-Item -Path $sourceDirectory -Destination $destinationDirectory -Recurse -Force
  
 } -ArgumentList $sourceDirectory, $destinationServer, $destinationCredential, $destinationDirectory
+
+*************************************************************************************************************************
+$fileUrls = @(
+    "https://example.com/file1.txt",
+    "https://example.com/file2.txt",
+    "https://example.com/file3.txt"
+)
+
+ 
+
+# Destination folder where you want to save the files
+$destinationFolder = "C:\Downloads"
+
+ 
+
+# Loop through each URL and download the files
+foreach ($url in $fileUrls) {
+    $fileName = [System.IO.Path]::GetFileName($url)
+    $destinationPath = Join-Path -Path $destinationFolder -ChildPath $fileName
+    Invoke-WebRequest -Uri $url -OutFile $destinationPath
+}
