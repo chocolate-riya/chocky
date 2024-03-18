@@ -1,0 +1,6 @@
+Invoke-WebRequest : The underlying connection was closed: An unexpected error occurred on a receive.
+At C:\Users\lc5733302\script.ps1:27 char:5
++     Invoke-WebRequest -Uri $url -OutFile $destinationPath -Credential ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], We
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
