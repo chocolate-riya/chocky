@@ -9,3 +9,5 @@ At C:\Users\lc5733302\script.ps1:27 char:5
 
 Invoke-WebRequest -Uri $url -OutFile $destinationPath -Credential $Credential -SkipCertificateCheck
 
+Checking Capability: ProcessExecutorCapability(processExecutorArguments=[/bin/sh, -c, pwsh -Version], category=DELEGATE_POWERSHELL, capabilityType=PROCESS_EXECUTOR)
+
