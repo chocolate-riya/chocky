@@ -74,3 +74,23 @@ if [ -d "$downloadDirectory" ]; then
 else
     echo "Download directory '$downloadDirectory' not found."
 fi
+***************************************************************************************************************************
+#!/bin/bash
+
+# Array of files to delete
+files=(
+    "/path/to/file1.txt"
+    "/path/to/file2.txt"
+    "/path/to/file3.txt"
+)
+
+# Loop through each file and delete it
+for file in "${files[@]}"; do
+    if [ -f "$file" ]; then
+        rm "$file"
+        echo "Deleted: $file"
+    else
+        echo "File not found: $file"
+    fi
+done
+
