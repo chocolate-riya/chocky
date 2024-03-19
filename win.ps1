@@ -38,3 +38,25 @@ foreach ($url in $fileUrls) {
     $destinationPath = Join-Path -Path $destinationFolder -ChildPath $fileName
     Invoke-WebRequest -Uri $url -OutFile $destinationPath
 }
+***********************************************************************************************************
+#!/bin/bash
+
+# Define credentials
+username="your_username"
+password="your_password"
+
+# Array of URLs of the files you want to download
+fileUrls=(
+    "https://webpaypg.jfrog.io/artifactory/docker-docker/gamutkart/11/file1.txt"
+    "https://webpaypg.jfrog.io/artifactory/docker-docker/gamutkart/11/file2.txt"
+    "https://webpaypg.jfrog.io/artifactory/docker-docker/gamutkart/12/file3.txt"
+)
+
+# Destination folder where you want to save the files
+destinationFolder="/path/to/destination/folder"
+
+# Loop through each URL and download the files
+for url in "${fileUrls[@]}"; do
+    filename=$(basename "$url")
+    curl -u "$username:$password" -o "$destinationFolder/$filename" "$url"
+done
