@@ -60,3 +60,17 @@ for url in "${fileUrls[@]}"; do
     filename=$(basename "$url")
     curl -u "$username:$password" -o "$destinationFolder/$filename" "$url"
 done
+***************************************************************************************************************
+#!/bin/bash
+
+# Directory containing downloaded files
+downloadDirectory="/path/to/downloaded/files"
+
+# Check if the directory exists
+if [ -d "$downloadDirectory" ]; then
+    # List files in the directory
+    echo "Downloaded files:"
+    ls "$downloadDirectory"
+else
+    echo "Download directory '$downloadDirectory' not found."
+fi
