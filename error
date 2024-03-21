@@ -11,3 +11,11 @@ Invoke-WebRequest -Uri $url -OutFile $destinationPath -Credential $Credential -S
 
 Checking Capability: ProcessExecutorCapability(processExecutorArguments=[/bin/sh, -c, pwsh -Version], category=DELEGATE_POWERSHELL, capabilityType=PROCESS_EXECUTOR)
 
+****************************************************************************************************
+Invoke-WebRequest : The underlying connection was closed: An unexpected error occurred on a receive.
+At C:\Users\SVCACCTWEBPAY\harness-executable-5DCgNb50SdSDeqxcG8Aklg-FZ0AFAbugL.ps1:9 char:1
++ Invoke-WebRequest -Uri $sourceUrl -Credential $Credential
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc 
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
