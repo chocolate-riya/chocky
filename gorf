@@ -1,0 +1,43 @@
+# Define Harness API credentials
+$apiKey = "YOUR_HARNESS_API_KEY"
+$apiSecret = "YOUR_HARNESS_API_SECRET"
+
+# Define Harness Service ID and Artifact Name
+$serviceId = "YOUR_SERVICE_ID"
+$artifactName = "YOUR_ARTIFACT_NAME"
+
+# Retrieve artifact versions from Harness using API
+$uri = "https://app.harness.io/gateway/api/graphql?accountId=YOUR_ACCOUNT_ID"
+$body = @"
+{
+  "query": "query{
+  artifactVersions(serviceId: "$serviceId", artifactName: "$artifactName",limit: 5,offset: 0){
+    versions{
+      versionNumber
+      createdAt
+      url
+    }
+  }
+}"
+}
+"@
+
+$headers = @{
+    "Authorization" = "Bearer $apiKey:$apiSecret"
+    "Content-Type" = "application/json"
+}
+
+$response = Invoke-RestMethod -Uri $uri -Method Post -Headers $headers -Body $body
+
+# Iterate over artifact versions and download them
+foreach ($version in $response.data.artifactVersions.versions) {
+    $url = $version.url
+    $versionNumber = $version.versionNumber
+    $fileName = "$artifactName-$versionNumber.zip"  # Adjust the filename format as needed
+    $destinationPath = "C:\Path\To\Download\Directory\$fileName"
+
+    # Download artifact
+    Invoke-WebRequest -Uri $url -OutFile $destinationPath
+
+    Write-Host "Downloaded artifact version $versionNumber"
+}
