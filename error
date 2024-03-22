@@ -19,3 +19,6 @@ At C:\Users\SVCACCTWEBPAY\harness-executable-5DCgNb50SdSDeqxcG8Aklg-FZ0AFAbugL.p
     + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc 
    eption
     + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+
+************************************************
+https://documentation.red-gate.com/flyway/flyway-cli-and-api/supported-databases
