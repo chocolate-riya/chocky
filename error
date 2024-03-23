@@ -22,3 +22,20 @@ At C:\Users\SVCACCTWEBPAY\harness-executable-5DCgNb50SdSDeqxcG8Aklg-FZ0AFAbugL.p
 
 ************************************************
 https://documentation.red-gate.com/flyway/flyway-cli-and-api/supported-databases
+**************************************************
+Invoke-WebRequest : The underlying connection was closed: An unexpected error occurred on a receive.
+At C:\Users\SVCACCTWEBPAY\harness-executable-UJuqCQdcRty3k48ep80kTw-JmvmRoAPr9.ps1:9 char:1
++ Invoke-WebRequest -Uri $sourceUrl -OutFile $destinationFolder -Creden ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc 
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand.
+*************************************************************
+$Username = "webpay"
+$Password = "Azuredemo@123"
+$SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
+$Credential = New-Object System.Management.Automation.PSCredential ($Username, $SecurePassword)
+$sourceUrl = "https://webpaypg.jfrog.io/artifactory/docker-docker/gamutkart/11"
+$destinationFolder = "C:\Users\lc5733302\Downloads\testfrog"
+
+Invoke-WebRequest -Uri $sourceUrl -OutFile $destinationFolder -Credential $Credential
