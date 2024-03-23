@@ -93,4 +93,21 @@ for file in "${files[@]}"; do
         echo "File not found: $file"
     fi
 done
+******************************************************************************************
+$url = "https://webpaypg.jfrog.io/artifactory/docker-docker/gamutkart/"  # Replace with the URL of the folder you want to download
+$destinationFolder = "C:\Users\windows\Downloads\frog"  # Replace with the destination folder where you want to save the downloaded files
+
+# Create destination folder if it doesn't exist
+if (-not (Test-Path -Path $destinationFolder -PathType Container)) {
+    New-Item -Path $destinationFolder -ItemType Directory | Out-Null
+}
+
+# Download folder contents
+$response = Invoke-WebRequest -Uri $url -OutFile "$destinationFolder\folder.zip"
+
+# Unzip the downloaded folder
+Expand-Archive -Path "$destinationFolder\folder.zip" -DestinationPath $destinationFolder -Force
+
+# Remove the downloaded zip file
+Remove-Item -Path "$destinationFolder\folder.zip"
 
