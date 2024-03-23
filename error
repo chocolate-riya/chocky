@@ -47,4 +47,7 @@ At C:\Users\lc5733302\Downloads\test\fr.ps1:15 char:13
     + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], We
    eption
     + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+******************
+$AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
+[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
 
