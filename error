@@ -39,3 +39,12 @@ $sourceUrl = "https://webpaypg.jfrog.io/artifactory/docker-docker/gamutkart/11"
 $destinationFolder = "C:\Users\lc5733302\Downloads\testfrog"
 
 Invoke-WebRequest -Uri $sourceUrl -OutFile $destinationFolder -Credential $Credential
+*************************************************************
+Invoke-WebRequest : The underlying connection was closed: An unexpected error occurred on a receive.
+At C:\Users\lc5733302\Downloads\test\fr.ps1:15 char:13
++ $response = Invoke-WebRequest -Uri $url -Credential $credentials -Met ...
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], We
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+
