@@ -18,3 +18,9 @@ class Pattern1
 		System.out.print(" ");
 	}
 }
+
+Invoke-Sqlcmd -Query "SELECT GETDATE() AS TimeOfQuery" -ServerInstance "MyComputer\MainInstance"
+
+TimeOfQuery
+-----------
+9/21/2017 2:48:24 PM
