@@ -110,4 +110,31 @@ Expand-Archive -Path "$destinationFolder\folder.zip" -DestinationPath $destinati
 
 # Remove the downloaded zip file
 Remove-Item -Path "$destinationFolder\folder.zip"
+**************************************************************************
+# Define the URL of the artifact folder you want to download
+$folderUrl = "https://your-artifactory-url/artifactory/your-repository/your-folder"
+
+# Specify your Artifactory username and API token
+$username = "your_username"
+$apiToken = "your_api_token"
+
+# Create a directory to store the downloaded files
+$destination = "C:\path\to\destination"
+New-Item -ItemType Directory -Force -Path $destination | Out-Null
+
+# Create basic authentication header using the username and API token
+$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username,$apiToken)))
+$headers = @{
+    Authorization = "Basic $base64AuthInfo"
+}
+
+# Download the artifact folder
+Invoke-WebRequest -Uri $folderUrl -Headers $headers -OutFile "$destination\folder.zip"
+
+# Extract the contents of the ZIP file
+Expand-Archive -Path "$destination\folder.zip" -DestinationPath $destination
+
+# Optionally, remove the ZIP file after extraction
+Remove-Item -Path "$destination\folder.zip"
+
 
